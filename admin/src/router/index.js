@@ -23,10 +23,10 @@ import AdminUserList from '../views/AdminUserList.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  { path: '/login', name: 'login', component: Login},
+  { path: '/login', name: 'login', component: Login, meta: { isPublic: true }},
   {
     path: '/',
-    name: 'Main',
+    name: 'main',
     component: Main,
     children: [
       { path: '/categories/create', component: CategoryEdit },
@@ -59,6 +59,15 @@ const routes = [
 
 const router = new VueRouter({
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  // console.log(to.meta)
+  // 不是公开访问的页面，而且本地的token不存在，就跳转到login页面
+  if(!to.meta.isPublic && !localStorage.token){
+    return next('/login')
+  }
+  next()
 })
 
 export default router
