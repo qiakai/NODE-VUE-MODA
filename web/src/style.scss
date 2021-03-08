@@ -1,5 +1,6 @@
 // reset
 * {
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     outline: none;
 }
@@ -15,7 +16,6 @@ body {
 a {
     color: #999;
 }
-
 // colors
 $colors: (
     "primary": #db9e3f,
@@ -26,9 +26,79 @@ $colors: (
     "dark": #222,
     "black": #000,
 );
-// text
-@each $var in $(left, center,right) {
-    .text-#($var) {
+@each $colorKey, $color in $colors {
+    .text-#{$colorKey} {
+        color: $color;
+    }
+    .bg-#{$colorKey} {
+        background-color: $color;
+    }
+}
+// text aligin
+@each $var in (left, center, right) {
+    .text-#{$var} {
         text-align: $var;
     }
+}
+// font size
+$base-font-size: 1rem;
+$font-sizes: (
+    xs: 0.7692,
+    // 10px
+    sm: 0.9231,
+    // 12px
+    md: 1,
+    // 13px
+    lg: 1.0769,
+    // 14px
+    xl: 1.2308,
+    // 16px
+);
+@each $sizeKey, $size in $font-sizes {
+    .fs-#{$sizeKey} {
+        font-size: $size * $base-font-size;
+    }
+}
+
+// flex
+.d-flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.flex-colum {
+    flex-direction: column;
+}
+$flex-jc: (
+    start: flex-start,
+    end: flex-end,
+    center: center,
+    between: space-between,
+    around: space-around,
+);
+@each $key, $value in $flex-jc {
+    .jc-#{$key} {
+        -webkit-box-pack: $value;
+        -ms-flex-pack: $value;
+        justify-content: $value;
+    }
+}
+$flex-ai: (
+    start: flex-start,
+    end: flex-end,
+    center: center,
+    stretch: stretch,
+);
+@each $key, $value in $flex-ai {
+    .jc-#{$key} {
+        -webkit-box-align: $value;
+        -ms-flex-align: $value;
+        align-items: $value;
+    }
+}
+.flex-1 {
+    flex: 1;
+}
+.flex-grow-1 {
+    flex-grow: 1;
 }
