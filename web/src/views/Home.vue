@@ -28,12 +28,20 @@
       ></div>
     </swiper>
     <!-- end of swiper -->
-    <div class="nav-icons bg-white mt-3 d-flex flex-wrap text-center text-grey-1 pt-3">
-      <div class="nav-item mb-3" v-for="n in 10" :key="n">
-        <i class="sprite sprite-news"></i>
-        <div>爆料站</div>
+    <div class="nav-icons bg-white mt-3 text-center text-grey-1 pt-3">
+      <div class="d-flex flex-wrap">
+        <div class="nav-item mb-3" v-for="n in 10" :key="n">
+          <i class="sprite sprite-news"></i>
+          <div class="py-2">爆料站</div>
+        </div>
+      </div>
+      <div class="bg-light py-2 fs-sm d-flex ai-center jc-center">
+        <i class="sprite sprite-arrow mr-1"></i>
+        <span>收起</span>
       </div>
     </div>
+    <!-- end of nav icons -->
+
   </div>
 </template>
 
@@ -47,8 +55,8 @@ export default {
         },
         // Some Swiper option/callback...
         autoplay: {
-            delay:2500,
-            disableOnInteraction: false,
+          delay: 2500,
+          disableOnInteraction: false,
         },
       },
     };
@@ -70,8 +78,14 @@ export default {
   }
 }
 .nav-icons {
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
   .nav-item {
     width: 25%;
+    border-left: 1px solid $border-color;
+    &:nth-child(4n + 1) {
+      border-left: none;
+    }
   }
 }
 </style>
