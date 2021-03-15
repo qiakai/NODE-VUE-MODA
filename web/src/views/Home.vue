@@ -41,7 +41,53 @@
       </div>
     </div>
     <!-- end of nav icons -->
+    <div class="card bg-white p-3 mt-3">
+      <div class="card-header d-flex ai-center">
+        <i class="iconfont icon-menu1"></i>
+        <div class="fs-xl flex-1 px-2">新闻资讯</div>
+        <i class="iconfont icon-menu"></i>
 
+      </div>
+      <div class="card-body">
+        <div class="nav jc-between">
+          <div class="nav-item active">
+            <div class="nav-link">热门</div>
+          </div>
+          <div class="nav-item active">
+            <div class="nav-link">新闻</div>
+          </div>
+          <div class="nav-item active">
+            <div class="nav-link">公告</div>
+          </div>
+          <div class="nav-item active">
+            <div class="nav-link">活动</div>
+          </div>
+          <div class="nav-item active">
+            <div class="nav-link">赛事</div>
+          </div>
+        </div>
+        <div class="pt-3">
+          <swiper>
+          <swiper-slide v-for="m in 5" :key="m">
+            <div class="py-2" v-for="n in 5" :key="n">
+              <span>[新闻]</span>
+              <span>|</span>
+              <span>第三届王者荣耀全国大赛——安徽省再次启航！</span>
+              <span>03/12</span>
+            </div>
+          </swiper-slide>
+        </swiper>
+        </div>
+      </div>
+    </div>
+<p>aaaa</p>
+<p>aaaa</p>
+<p>aaaa</p>
+<p>aaaa</p>
+<p>aaaa</p>
+<p>aaaa</p>
+<p>aaaa</p>
+<p>aaaa</p>
   </div>
 </template>
 
